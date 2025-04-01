@@ -1,6 +1,6 @@
 # h1 Kybertappoketju
 
-Raportti on tehty 1.4.2025 - 2.4.2025 klo. 14.00 - 01.00 välisenä aikana.
+Raportti on tehty 1.4.2025 - 2.4.2025 klo. 14.00 - 01.45 välisenä aikana.
 
 Tehtävät on tehty Tero Karvisen Tunkeutumistestaus kurssin materiaaleja hyödyntäen.
 
@@ -15,14 +15,17 @@ Tehtävien tekemiseen käytetty laitteisto:
 
 ## x) Tiivistelmä
 
-### Herrasmieshakkerit
+### Herrasmieshakkerit - Silmä taivaalla, vieraana Pekka Laurila | 0x37
 
 * Helpompi pitää huolta yhdestä tunnuksesta, kuin useasta maalaisjärkeä käyttäen.
 * Bypit virtuaalivaluutta vaihtopalvelua kohtaan hyökättiin helmikuussa väitetysti pohjoiskorean toimesta. Isoin rahallinen menetys koskaan (1.5 miljardia dollaria).
 * Lentorahtina akun saanti lentorahdiksi kestää kaksivuotta ainakin, kun yhdysvaltoihin yritetään saada rahtia.
 * Valtiot härnäävät toisiaan avaruudessa ja yrittävät myös vakoilla toisten satelliitteja.
 * ICYE:n teknologialla voidaan ottaa kuvaa aina maanpinnasta. He lähettävät itse signaalin maahan, kun normaalisti tähän tarvitaan auringon valoa.
-*  
+* Satelliitteja voidaan hyödyntää sotateollisuudessa, vaikka nämä eivät ole aseita itse.
+* ICYE:n satelliitit ovat omassa verkossa ja toimivat linuxia hyödyntäen.
+* Spacex kehittää rakettia mikä voidaan udeelleen käyttää (Käytännössä avaruusalus).
+* Tomi haluaisi satelliitin millä näkee avaruuteen.
 
 ### Intelligence-Driven Computer Network Defense
 Informed by Analysis of Adversary Campaigns and
@@ -213,7 +216,7 @@ Hutchins, E. M., Cloppert, M. J., & Amin, R. M. 2011: Intelligence-Driven Comput
 Informed by Analysis of Adversary Campaigns and
 Intrusion Kill Chains. Luettavissa: (https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf) Luettu 1.4.2025
 
-Hyppönen, M., Tuominen, T. 2025: Herrasmieshakerit, Silmätaivaalla, vieraana Pekka Laurila | 0x37. Kuunneltavissa: (https://www.withsecure.com/fi/whats-new/podcasts/herrasmieshakkerit) Kuunneltu 1.4.2025
+Hyppönen, M., Tuominen, T. 2025: Herrasmieshakerit, Silmä taivaalla, vieraana Pekka Laurila | 0x37. Kuunneltavissa: (https://www.withsecure.com/fi/whats-new/podcasts/herrasmieshakkerit) Kuunneltu 1.4.2025
 
 Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019: The Art of Hacking (Video Collection). Kuunneltavissa: (https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00/) Kuunneltu 1.4.2025
 
