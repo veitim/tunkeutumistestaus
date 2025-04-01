@@ -19,8 +19,10 @@ Tehtävien tekemiseen käytetty laitteisto:
 
 * Helpompi pitää huolta yhdestä tunnuksesta, kuin useasta maalaisjärkeä käyttäen.
 * Bypit virtuaalivaluutta vaihtopalvelua kohtaan hyökättiin helmikuussa väitetysti pohjoiskorean toimesta. Isoin rahallinen menetys koskaan (1.5 miljardia dollaria).
+* Lentorahtina akun saanti lentorahdiksi kestää kaksivuotta ainakin, kun yhdysvaltoihin yritetään saada rahtia.
 * Valtiot härnäävät toisiaan avaruudessa ja yrittävät myös vakoilla toisten satelliitteja.
-* 
+* ICYE:n teknologialla voidaan ottaa kuvaa aina maanpinnasta. He lähettävät itse signaalin maahan, kun normaalisti tähän tarvitaan auringon valoa.
+*  
 
 ### Intelligence-Driven Computer Network Defense
 Informed by Analysis of Adversary Campaigns and
@@ -173,13 +175,23 @@ Ja selaimesta saa metasploit sivun auki laittamalla metasploit-koneen IP-osoitte
 
 Komennolla "nmap -A -T4 -p- 192.168.69.3" Skannassin metasploitable-koneen portit.
 
-Ensimmäiseksi osui silmään portti 21/tcp
+Itse en juuri osaa mielipiteitä tästä antaa, mutta ensimmäiseksi osui silmään portti 21/tcp
 
-![g](images/h1_g1.png)
+![h](images/h1_h1.png)
 
 Anonymous FTP login allowed. Tämä tarkoittaa Geeks for Geeks sivuston mukaan sitä, että ulkopuoliset tahot voivat kirjautua FTP-palvelimelle ilman yksilöllistä tunnistautumista. Käyttäjä anonymous tai ftp ja salasana mikä tahansa. Tarkoittaa, että palvelut mitkä käyttävät FTP-protokollaa ei saa pitää sisällään salaista tietoa.
 
+Uskoisin kyllä, että haavoittuvuuksia on useita, mutta tarkastelen portteja mitkä ovat minulle tuttuja. Seuraavaksi katson porttia 80/tcp, missä apache2 on kiinni.
 
+![h](images/h1_h2.png)
+
+Kuvasta näkee, että apache2-versio 2.2.8 on vanha, mikä tekee tästä tietoturvariskin.
+
+Portti 22/tcp kohdalla toistuu sama ongelma. OpenSSH-versio on vanhentunut. 
+
+![h](images/h1_h3.png)
+
+Vanhentuneet versiot eivät saa päivityksiä. Tämä tekee näistä tietoturvariskejä.
 
 ## Lähteet:
 
