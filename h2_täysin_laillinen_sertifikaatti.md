@@ -1,6 +1,6 @@
 # h2 Täysin Laillinen Sertifikaatti
 
-Raportti on tehty 8.4.2025 klo. 14.00 - 23.50 välisenä aikana.
+Raportti on tehty 8.4.2025 klo. 14.00 - 23.55 välisenä aikana.
 
 Tehtävät on tehty Tero Karvisen Tunkeutumistestaus kurssin materiaaleja hyödyntäen. (https://terokarvinen.com/tunkeutumistestaus/)
 Tehtävät suoritettu portswiggerin harjoitusympäristössä (https://portswigger.net/)
@@ -92,7 +92,9 @@ Navigoin Karvisen vinkeistä löytyvien ohjeiden avulla zapissa: Tools -> Option
 
 ![a](imagess/h2_a1.png)
 
-Ja tallenna. Seuraavaksi menin firefox selaimen Privacy & Security asetuksiin, josta avasin sertifikaatit "view certificates..."
+![a](imagess/h2_a.png)
+
+Seuraavaksi menin firefox selaimen Privacy & Security asetuksiin, josta avasin sertifikaatit "view certificates..."
 
 ![a](images/h2_a2.png)
 
