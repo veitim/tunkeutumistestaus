@@ -90,9 +90,9 @@ Käynnistin ohjelman komennolla "zaproxy"
 
 Navigoin Karvisen vinkeistä löytyvien ohjeiden avulla zapissa: Tools -> Options -> Network -> Server Certificate (kävin samalla laittamassa täpän Tools -> Options -> Display Process images in HTTP requests/responses kohtaan, silä kuvia tarvitaan)
 
-![a](imagess/h2_a1.png)
+![a](images/h2_a1.png)
 
-![a](imagess/h2_a.png)
+![a](images/h2_a.png)
 
 Seuraavaksi menin firefox selaimen Privacy & Security asetuksiin, josta avasin sertifikaatit "view certificates..."
 
