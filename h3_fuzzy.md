@@ -1,6 +1,6 @@
 # h3 fuzzy
 
-Raportti on tehty 15.4.2025 klo. 14.30 - välisenä aikana.
+Raportti on tehty 15.4.2025-16.4.2025 klo. 14.30 - 00.30 välisenä aikana.
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
 
