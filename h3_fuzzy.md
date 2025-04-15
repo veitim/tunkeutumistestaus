@@ -16,17 +16,38 @@ OS: Debian 64bit RAM: 4 GB CPU: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz (12 CP
 
 ## x) Tiivistelmä
 
-### Karvinen 2023: Find Hidden Web Directories - Fuzz URLs with ffuf
+### Karvinen 2023: [Find Hidden Web Directories - Fuzz URLs with ffuf](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/)
 
-(HTTP) Status (-fc). But the hidden pages are probably 200 OK, too.
-Size (in bytes) (-fs)
-Words (-fw)
-Lines (-fl)
+fuffin asennus packetmanagerilla:
 
+    $ sudo apt-get update
+    $ sudo apt-get install ffuf
 
-### Hoikkala 2023: ffuf README.md
+Parametreja:
 
+* (HTTP) Status (-fc). But the hidden pages are probably 200 OK, too.
+* Size (in bytes) (-fs)
+* Words (-fw)
+* Lines (-fl)
 
+### Hoikkala 2023: [ffuf README.md](https://github.com/ffuf/ffuf/blob/master/README.md)
+
+* -maxtime 5 = fussataan 5 sekuntia
+* FUZZ jälkeen voi laittaa useita parametreja. esim. "FUZZ -mc all -fc 400" Haetaan kaikki muut status responset paitsi 400. 
+
+GET fuss
+
+    ffuf -w /path/to/values.txt -u https://target/script.php?valid_name=FUZZ -fc 401
+
+* -W = sanalistan sijainti
+* -u = url josta haetaan
+
+POST fuss
+
+    ffuf -w /path/to/postdata.txt -X POST -d "username=admin\&password=FUZZ" -u https://target/login.php -fc 401
+
+* -X HTTP metodi (POST)
+* -d POST data
 
 ## a) Fuzzzz. Ratkaise dirfuz-1 artikkelista Karvinen 2023: [Find Hidden Web Directories - Fuzz URLs with ffuf](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/)
 
@@ -223,11 +244,53 @@ Alkuun tuli "Required Parameter Missing" ja "debugin" kanssa aukesikin sivu mit�
 
 ## h) Rate Limited
 
-![h](images/h3_ch.png)
+Tässä sitten yritetään ohittaa rate limitti. Eli tässä on asetuksena ettei voida lähettää enempää, kuin 50 pyyntöä sekunnissa.  Ensiksi testatiin rajoittamatonta hakua:
+
+    ffuf -w ~/wordlists/common.txt -u http://ffuf.test/cd/rate/FUZZ -mc 200,429
+
+* -mc = haetaan vastaavia status responseja "200, 429" 
+
+![h](images/h3_h1.png)
+
+Tuli reilusti virheitä. Harjoituksessa lukee, että pitäisi kuitenkin saada näitä 429 responseja. Tiedä sitten. Kokeilin kuitenkin rajoittaa pyyntöjen nopeutta komennolla:
+
+    ffuf -w ~/wordlists/common.txt -t 5 -p 0.1 -u http://ffuf.test/cd/rate/FUZZ -mc 200,429
+
+* -t 5 = threadejen määrä. Normaalisti 40 asetetaan 5. fuff instanssejen määrä? Jokatapauksessa mitä suurempi luku, niin sen enemmän pyyntöjä lähtee.
+* -p 0.1 = Pyyntöjen välinen viive. 0.1 sekuntia.
+* Näillä asetuksilla pitäisi olla alle 50 pyyntöä sekunnissa.
+
+Vieläkään ei mitään. Ahaa vika onkin url-osoitteessa. Eli tässä yritetään tehdä pyyntöä osoitteeseen "ffuf.test", mutta minulla tämä on localhostissa, joten teen pyynnön localhostiin.
+
+    ffuf -w ~/wordlists/common.txt -t 5 -p 0.1 -u http://localhost/cd/rate/FUZZ -mc 200,429
+
+![h](images/h3_h2.png)
+
+Noniin löytyihän se oraakkeli. 
+
+Ja ilman rajoittimia tuli sitten paljon status 429 responseja.
+
+    ffuf -w ~/wordlists/common.txt -u http://localhost/cd/rate/FUZZ -mc 200,429
 
 ## i) Subdomains - Virtual Host Enumeration
 
+Nyt etsitään alidomaineja. Ensiksi etsittiin komennolla:
+
+    ffuf -w ~/wordlists/subdomains.txt -H "Host: FUZZ.ffuf.me" -u http://localhost
+
+* -H = etsitään headeria. Tässä tapauksessa kohdasta "Host: "FUZZ".
+
 ![i](images/h3_i1.png)
+
+Mikäs se sielä pilkistää "redhat" eroaa joukosta (pitäisi varmaan lotota, kun vahingossa löytyi)
+
+Suodaettiin jokatapauksessa useasti toistuva bittimäärä pois komennolla:
+
+    ffuf -w ~/wordlists/subdomains.txt -H "Host: FUZZ.ffuf.me" -u http://localhost -fs 1495
+
+![i](images/h3_i2.png)
+
+Sinne se redhatti sitten suodatettiin.
 
 ## Lähteet:
 
