@@ -138,9 +138,16 @@ Boottasin virtuaalikoneen ja suoritin "./configure" uudestaan.
 
 ![b](images/h4_b4.png)
 
-Noniin. Eli nyt siis päästään vasta selvittelemään puuttuvia paketteja. Kokeilen silti tulosteen lopussa olevaa "make" komentoa:
+Noniin. Eli nyt siis päästään vasta selvittelemään puuttuvia paketteja. Käytin make komentoa mikä tuli tulosteen loppuun.
 
     make -s clean && make -sj2
+
+![b](images/h4_b5.png)
+
+Eli pitää asentaa "libbz2" paketti. Kokeilin uudestaan "apt-cachea"
+
+    apt-cache search libbz2
+
 
 ## e) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
