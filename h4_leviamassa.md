@@ -102,7 +102,7 @@ Ja hashia vastaava sana on "summer". Esimerkkisalasana murrettu.
 
 ## c) Asenna John the Ripper ja testaa sen toiminta murtamalla jonkin esimerkkitiedoston salasana.
 
-Aloitin asentamalla paketit, mitä john the ripper vaatii komennolla:
+Aloitin tekemällä "ripper" hakemiston ja asentamalla paketit, mitä john the ripper vaatii komennolla:
 
     $ sudo apt-get -y install micro bash-completion git build-essential libssl-dev zlib1g zlib1g-dev zlib-gst libbz2-1.0 libbz2-dev atool zip wget
 
@@ -148,6 +148,51 @@ Eli pitää asentaa "libbz2" paketti. Kokeilin uudestaan "apt-cachea"
 
     apt-cache search libbz2
 
+Asensin libbz2-dev:
+
+    sudo apt-get install libbz2-dev
+
+![b](images/h4_b7.png)
+
+Ei asennu. kokeilin päivittää paketit apt-get updatella. Samaa herjaa heittää. Boottasin kali-koneen ja uudestaan yritys. Bootti auttoi sain asennettua ohjelman ja päivitettyä paktetit. Sitten kokeilemaan "./configure" ja "make".
+
+![b](images/h4_b8.png)
+
+Mainiota sehän toimi. Sitten eteenpäin. Käynnistin johntheripperin komennolla:
+
+    $HOME/ripper/john/run/john
+
+![b](images/h4_b9.png)
+
+Sujuu vähän turhankin mallikkaasti.
+
+Seuravaaksi latasin wgetillä Karvisen sivulta salasanasuojatun zipin "ripper" hakemistoon (aktiivinen hakemisto) komennolla:
+
+    wget https://TeroKarvinen.com/2023/crack-file-password-with-john/tero.zip
+
+![b](images/h4_b10.png)
+
+Siellä se on. Tiedosto on tosiaan zippi, eli minun puuttuva paketti ei olisi todennäköisesti aiheuttanut mitään ongelmia, koska se oli 7zip työkalu tjsp. Jokatapauksessa kokeilin unzipata tämän "tero.zip" tiedoston.
+
+    unzip tero.zip
+
+![b](images/h4_b11.png)
+
+Salasanalla on suojattu. Eikun murtamaan. Keräsin tero.zip tiedostosta hashin komennolla:
+
+    $HOME/ripper/john/run/zip2john tero.zip >tero.zip.hash
+
+Tämän jälkeen tein sanakirjahyökkäyksen tähän hashiin komennolla:
+
+    $HOME/ripper/john/run/john tero.zip.hash
+
+![b](images/h4_b12.png)
+
+Taitaapi olla salasana "butterfly" kokeillaan unzipata uusiksi.
+
+![b](images/h4_b13.png)
+
+Salasana toimi ja secretfiles hakemistosta löytyi secret.md minä catilla tulostin.
 
 ## e) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
