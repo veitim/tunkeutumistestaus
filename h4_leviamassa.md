@@ -31,9 +31,6 @@ Hashcatin asennus:
 
 ### € Singh 2025: The Ultimate Kali Linux Book: [Understanding Active Directory](https://learning.oreilly.com/library/view/the-ultimate-kali/9781835085806/Text/Chapter_12.xhtml#_idParaDest-272) (Vain tuo kappale, ei enää "Enumerating Active Directory")
 
-### € Vapaaehtoinen: Kennedy et al 2025: Metasploit: [Basic Meterpreter Commands](https://learning.oreilly.com/library/view/metasploit-2nd-edition/9798341620032/xhtml/chapter6.xhtml#toc-link_85)
-
-
 ## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana.
 
 Lähdin asentelemaan hashcattia Tero Karvisen [ohjeita](https://terokarvinen.com/2022/cracking-passwords-with-hashcat/) noudattaen.
@@ -192,11 +189,74 @@ Taitaapi olla salasana "butterfly" kokeillaan unzipata uusiksi.
 
 ![b](images/h4_b13.png)
 
-Salasana toimi ja secretfiles hakemistosta löytyi secret.md minä catilla tulostin.
+Salasana toimi ja secretfiles hakemistosta löytyi secret.md minkä catilla tulostin.
 
 ## e) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
+Tein pdf tiedoston (destroy), jonka dragasin kali-virtuaalikoneeseen. Tämän jälkeen salasin kyseisen tiedoston seuraavia ohjeita seuraten: (https://askubuntu.com/questions/938015/how-do-i-password-protect-a-pdf-document)
+
+Encryptasin pdf tiedoston:
+
+     qpdf --encrypt password password 256 -- destroy.pdf destroy_encrypted.pdf
+
+* password password = salasana
+* 256 hashin pituus
+* destroy.pdf tiedosto, joka salataan.
+* destroy_encrypted.pdf, salattu tiedosto.
+
+Tarkastelin john the ripperin moduuleita.
+
+![c](images/h4_c1.png)
+
+Nämä näyttävät oikeilta. Kokeilin:
+
+    $HOME/ripper/john/run/pdf2john.pl destroy_encrypted.pdf >destroy_encrypted.pdf.hash
+
+![c](images/h4_c2.png)
+
+Hashin luominen onnistui sitten hyökkäys:
+
+    $HOME/ripper/john/run/john destroy_encrypted.pdf.hash
+
+![c](images/h4_c3.png)
+
+Salasana "password" löytyi. Pdf-tiedoston salaus murrettu. 
+
 ## f) Tiiviste. Tee itse tai etsi verkosta salasanan tiiviste, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi. Voit esim. tehdä käyttäjän Linuxiin ja murtaa sen salasanan.)
+
+Tein uuden käyttäjän:
+
+    sudo adduser kirottu
+
+* Salasana = password
+
+Sitten rupesin tutkimaan, että miten voisin murtaa tämän johnilla. Löysin [linkin](https://linuxconfig.org/password-cracking-with-john-the-ripper-on-linux) Mistä löytyi hyvin selkeät ja helpot ohjeet tähän.
+
+Komennolla:
+
+    sudo unshadow /etc/passwd /etc/shadow > hashes.out
+
+Yhdistettiin /etc/passwd ja /etc/shadow hashes.out tiedostoksi.
+
+* john pystyy tähän
+
+/etc/passwd näyttää seuraavalta:
+
+![c](images/h4_d2.png)
+
+Ja hashes.out seuraavalta:
+
+![c](images/h4_d3.png)
+
+Eli john hakee shadow tiedostosta piilotetut palaset ja yhidstää ne passwd tiedostossa oikeisiin kohtiin. Ja kirottu: jälkeen tuleva "$y$j9T$zqztMqNBxP46uwpLUsydV1$6fyJK6dIw5frwuU2" näyttää hashilta.
+
+Tätä lähdettiin avaamaan johntheripperillä komennolla:
+
+    john --format=crypt hashes.out
+
+![c](images/h4_d1.png)
+
+Ja käyttäjän "kirottu" salasana on "password" loistavaa.
 
 ## g) Tee msfvenom-työkalulla haittaohjelma, joka soittaa kotiin (reverse shell). Ota yhteys vastaan metasploitin multi/handler -työkalulla.
 
@@ -213,3 +273,9 @@ Stack Overflow 2016: Viestiketju, difference between tar zxf vs -xvf. Luettaviss
 Debian: Paketti: zlib-gst (3.2.5-1.3 ja muut). Luettavissa: (https://packages.debian.org/bullseye/zlib-gst) Luettu 22.4.2025
 
 Stack Overflow 2015: Viestiketju, OpenSSL headers missing when building OpenSSH. Luettavissa: (https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh) Luettu 22.4.2025
+
+K. Hess 2021: Encrypting and decrypting archives with 7-Zip. Luettavissa: (https://www.redhat.com/en/blog/encrypting-decrypting-7zip) Luettu 22.4.2025
+
+Ask Ubuntu 2017: How do I password protect a pdf document?. Luettavissa: (https://askubuntu.com/questions/938015/how-do-i-password-protect-a-pdf-document) Luettu 23.4.2025
+
+L. Reynolds 2024: Password cracking with John the Ripper on Linux. Luettavissa: (https://linuxconfig.org/password-cracking-with-john-the-ripper-on-linux) Luettu 23.4.2025
