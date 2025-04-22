@@ -10,7 +10,7 @@ Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus
 
 * Järjestelmät ei tallenna alkuperäisiä salasanoja, vaan hashin.
 * Tietokoneella voidaan yrittää löytää hashia vastaava sana. 
-* Pen-testit oletuksena laittomia ilman sopimuksia.
+* Pen-testit oletuksena laittomia. Eli ei saa luvatta testailla ulkopuolisten järjestelmiä.
 
 Hashcatin asennus:
 
@@ -20,9 +20,10 @@ Hashcatin asennus:
 * Täyyy hankkia iso sanakirjasto (Rockyou suosittu)
 * Tunnista hashin tyyppi. MD5 yleisempi, kuin MD2 tai MD4
 
-
-
 ### Karvinen 2023: [Crack File Password With John](https://terokarvinen.com/2023/crack-file-password-with-john/)
+
+* Monet tiedostotyypit vahvistavat salausta salasanalla.
+* John the Ripperilla voidaan crackata nämä salasanat käyttäen sanakirjahyökkäystä.
 
 ### € Santos et al 2017: Security Penetration Testing - The Art of Hacking Series LiveLessons: [Lesson 6: Hacking User Credentials](https://learning.oreilly.com/videos/security-penetration-testing/9780134833989/9780134833989-sptt_00_06_00_00) (8 videos, about 30 min)
 
@@ -91,8 +92,6 @@ Tämä ei kyllä auta salasananmurtamisessa mitenkään, joten yritetään nyt s
 
 ![a](images/h4_a5.png)
 
-* hash crackattu
-
 Crackaus kuitenkin onnistui ja vastauksen sain komennolla:
 
     $ hashcat -m 0 6b1628b016dff46e6fa35684be6acc96 rockyou.txt --show
@@ -102,6 +101,46 @@ Crackaus kuitenkin onnistui ja vastauksen sain komennolla:
 Ja hashia vastaava sana on "summer". Esimerkkisalasana murrettu.
 
 ## c) Asenna John the Ripper ja testaa sen toiminta murtamalla jonkin esimerkkitiedoston salasana.
+
+Aloitin asentamalla paketit, mitä john the ripper vaatii komennolla:
+
+    $ sudo apt-get -y install micro bash-completion git build-essential libssl-dev zlib1g zlib1g-dev zlib-gst libbz2-1.0 libbz2-dev atool zip wget
+
+![b](images/h4_b1.png)
+
+Ei löydä "zlib-gst" pakettia. Jos ongelmia syntyy, niin sitten selvitän miten saan tämän tai vastaavan kalille.
+
+Seuraavaksi asensin john the ripperin hakemalla tämän tekijän githubista:
+
+    git clone --depth=1 https://github.com/openwall/john.git
+
+Sitten tarkistin, että toimiiko kaikki. Navigoin "/home/timo/ripper/john/src/" hakemistoon (tein itse ripper hakemiston, kun en tiennyt paljon sieltä tulee tavaraa.) Tämän jälkeen käytin komentoa:
+
+    ./configure
+
+ * Tämä tarkistaa, että kaikki vaatimukset on täytetty.
+
+![b](images/h4_b2.png)
+
+Ongelmia löytyy uskoisin, että "zlib-gst" tämän aukon täyttäisi. Zlib-gst paketti on gnu smalltalkkiin viittava. Eli ei taida olla tekemistä OpenSSL:n kanssa. Kokeilin seuraavaa:
+
+    apt-cache search openssl
+
+![b](images/h4_b3.png)
+
+Vähän turhan paljon paketteja mistä valita, joten seuraavaksi lähdin hakemaan verkosta apuja. 
+
+Ann Kilzerin [neuvoo](https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh) asentamaan paketin "libssl-dev". Asensin tämän komennolla:
+
+    apt-get install libssl-dev
+
+Boottasin virtuaalikoneen ja suoritin "./configure" uudestaan.
+
+![b](images/h4_b4.png)
+
+Noniin. Eli nyt siis päästään vasta selvittelemään puuttuvia paketteja. Kokeilen silti tulosteen lopussa olevaa "make" komentoa:
+
+    make -s clean && make -sj2
 
 ## e) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
@@ -118,3 +157,7 @@ T. Karvinen 2022: Cracking Passwords with Hashcat. Luettavissa: (https://terokar
 T. Karvinen 2023: Crack File Password With John. Luettavissa: (https://terokarvinen.com/2023/crack-file-password-with-john/) Luettu 22.4.2025
 
 Stack Overflow 2016: Viestiketju, difference between tar zxf vs -xvf. Luettavissa: (https://stackoverflow.com/questions/35612534/difference-between-tar-zxf-vs-xvf#35613601) Luettu 22.4.2025
+
+Debian: Paketti: zlib-gst (3.2.5-1.3 ja muut). Luettavissa: (https://packages.debian.org/bullseye/zlib-gst) Luettu 22.4.2025
+
+Stack Overflow 2015: Viestiketju, OpenSSL headers missing when building OpenSSH. Luettavissa: (https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh) Luettu 22.4.2025
