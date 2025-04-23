@@ -1,6 +1,6 @@
 # h4 Leviämässä
 
-Raporttia on tehty 22.4.2025 - 23.4.2025  klo. 15.30 - 06.00. Sekä 23.4.2025 klo. 12.10 - 
+Raporttia on tehty 22.4.2025 - 23.4.2025  klo. 15.30 - 06.00. Sekä 23.4.2025 klo. 12.10 - 12.30
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
  
