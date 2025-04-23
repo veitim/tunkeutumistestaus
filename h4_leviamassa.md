@@ -208,7 +208,7 @@ Salasana toimi ja secretfiles hakemistosta löytyi secret.md minkä catilla tulo
 
 ## e) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
-Tein pdf tiedoston (destroy), jonka dragasin kali-virtuaalikoneeseen. Tämän jälkeen salasin kyseisen tiedoston seuraavia ohjeita seuraten: (https://askubuntu.com/questions/938015/how-do-i-password-protect-a-pdf-document)
+Tein pdf tiedoston (destroy.pdf) isäntä koneen puolella, jonka tiputin kali-virtuaalikoneeseen. Tämän jälkeen salasin kyseisen tiedoston seuraavia ohjeita seuraten: (https://askubuntu.com/questions/938015/how-do-i-password-protect-a-pdf-document)
 
 Encryptasin pdf tiedoston:
 
@@ -253,7 +253,7 @@ Komennolla:
 
 Yhdistettiin /etc/passwd ja /etc/shadow hashes.out tiedostoksi.
 
-* john pystyy tähän
+* john the ripper pystyy tähän
 
 /etc/passwd näyttää seuraavalta:
 
