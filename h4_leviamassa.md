@@ -1,6 +1,6 @@
 # h4 Leviämässä
 
-Raportti on tehty 22.4.2025  klo. 15.30 - .
+Raportti on tehty 22.4.2025 - 23.4.2025  klo. 15.30 - .
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
  
@@ -230,7 +230,7 @@ Tein uuden käyttäjän:
 
 * Salasana = password
 
-Sitten rupesin tutkimaan, että miten voisin murtaa tämän johnilla. Löysin [linkin](https://linuxconfig.org/password-cracking-with-john-the-ripper-on-linux) Mistä löytyi hyvin selkeät ja helpot ohjeet tähän.
+Sitten rupesin tutkimaan, että miten voisin murtaa tämän johnilla. Löysin [linkin](https://linuxconfig.org/password-cracking-with-john-the-ripper-on-linux) Mistä löytyi selkeät ja helpot ohjeet tähän (Kiitokset Luke Reynoldsille).
 
 Komennolla:
 
@@ -260,6 +260,8 @@ Ja käyttäjän "kirottu" salasana on "password" loistavaa.
 
 ## g) Tee msfvenom-työkalulla haittaohjelma, joka soittaa kotiin (reverse shell). Ota yhteys vastaan metasploitin multi/handler -työkalulla.
 
+
+
 ## Lähteet:
 
 T. Karvinen 2025: Tunkeutumistestaus. Luettavissa: (https://terokarvinen.com/tunkeutumistestaus/) Luettu 22.4.2025
@@ -273,8 +275,6 @@ Stack Overflow 2016: Viestiketju, difference between tar zxf vs -xvf. Luettaviss
 Debian: Paketti: zlib-gst (3.2.5-1.3 ja muut). Luettavissa: (https://packages.debian.org/bullseye/zlib-gst) Luettu 22.4.2025
 
 Stack Overflow 2015: Viestiketju, OpenSSL headers missing when building OpenSSH. Luettavissa: (https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh) Luettu 22.4.2025
-
-K. Hess 2021: Encrypting and decrypting archives with 7-Zip. Luettavissa: (https://www.redhat.com/en/blog/encrypting-decrypting-7zip) Luettu 22.4.2025
 
 Ask Ubuntu 2017: How do I password protect a pdf document?. Luettavissa: (https://askubuntu.com/questions/938015/how-do-i-password-protect-a-pdf-document) Luettu 23.4.2025
 
