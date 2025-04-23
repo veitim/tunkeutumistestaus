@@ -29,7 +29,13 @@ Hashcatin asennus:
 
 ### € Kennedy et al 2025: Metasploit: [File-Format Exploits](https://learning.oreilly.com/library/view/metasploit-2nd-edition/9798341620032/xhtml/chapter9.xhtml#:-:text=File-Format%20Exploits) (sivun loppuun, eli Wrapping Up loppuun)
 
+* File-format bugit ovat keinoja ujuttaa haittaohjelmia järjestelmiin. Käyttäen esim. pdf. tiedostoja.
+* Voi olla mikä tahansa tiedostotyyppi, jos uskot uhrin tämän avaavan.
+* 
+
 ### € Singh 2025: The Ultimate Kali Linux Book: [Understanding Active Directory](https://learning.oreilly.com/library/view/the-ultimate-kali/9781835085806/Text/Chapter_12.xhtml#_idParaDest-272) (Vain tuo kappale, ei enää "Enumerating Active Directory")
+
+* Active directory muistuttaa salttia. Eli voidaan 
 
 ## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana.
 
