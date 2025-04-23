@@ -1,6 +1,6 @@
 # h4 Leviämässä
 
-Raportti on tehty 22.4.2025 - 23.4.2025  klo. 15.30 - .
+Raporttia on tehty 22.4.2025 - 23.4.2025  klo. 15.30 - 06.00. Sekä 23.4.2025 klo. 12.10 - 
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
  
@@ -27,15 +27,24 @@ Hashcatin asennus:
 
 ### € Santos et al 2017: Security Penetration Testing - The Art of Hacking Series LiveLessons: [Lesson 6: Hacking User Credentials](https://learning.oreilly.com/videos/security-penetration-testing/9780134833989/9780134833989-sptt_00_06_00_00) (8 videos, about 30 min)
 
+* Ihmiset käyttää liian surkeita salasanoja
+* Salasanoja pitäisi päivittää ja käyttää muutenkin useita
+* Julkinen verkko vaarallinen. Käytä vpn yhteyttä näissä
+* Prosessori teho suoraan verrallonninen salasanojen murtamisen tehoon. Sekä paljon työkaluja tähän
+* Käytä salasanoja, joita ei voi päätellä
+* Mitä pidempi salasana sen turvallisempi se on
+* Kaksivaiheinen tunnistus tuo turvaa entisestään
+
 ### € Kennedy et al 2025: Metasploit: [File-Format Exploits](https://learning.oreilly.com/library/view/metasploit-2nd-edition/9798341620032/xhtml/chapter9.xhtml#:-:text=File-Format%20Exploits) (sivun loppuun, eli Wrapping Up loppuun)
 
 * File-format bugit ovat keinoja ujuttaa haittaohjelmia järjestelmiin. Käyttäen esim. pdf. tiedostoja.
 * Voi olla mikä tahansa tiedostotyyppi, jos uskot uhrin tämän avaavan.
-* 
 
 ### € Singh 2025: The Ultimate Kali Linux Book: [Understanding Active Directory](https://learning.oreilly.com/library/view/the-ultimate-kali/9781835085806/Text/Chapter_12.xhtml#_idParaDest-272) (Vain tuo kappale, ei enää "Enumerating Active Directory")
 
-* Active directory muistuttaa salttia. Eli voidaan 
+* Active directory muistuttaa salttia. Eli voidaan paikallisesti hallita useita koneita isäntä koneen kautta.
+* Windowsille vain?
+* 
 
 ## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana.
 
@@ -327,6 +336,12 @@ T. Karvinen 2022: Cracking Passwords with Hashcat. Luettavissa: (https://terokar
 
 T. Karvinen 2023: Crack File Password With John. Luettavissa: (https://terokarvinen.com/2023/crack-file-password-with-john/) Luettu 22.4.2025
 
+Kennedy et al 2025: Metasploit: File-Format Exploits. Luettavissa: (https://learning.oreilly.com/library/view/metasploit-2nd-edition/9798341620032/xhtml/chapter9.xhtml#toc-link_129) Luettu. 22.4.2025
+
+Singh 2025: The Ultimate Kali Linux Book: Understanding Active Directory. Luettavissa: (https://learning.oreilly.com/library/view/the-ultimate-kali/9781835085806/Text/Chapter_12.xhtml#_idParaDest-273) Luettu. 22.4.2025
+
+Santos et al 2017: Security Penetration Testing - The Art of Hacking Series LiveLessons: Lesson 6: Hacking User Credentials. Kuuneltavissa: (https://learning.oreilly.com/videos/security-penetration-testing/9780134833989/9780134833989-sptt_00_06_03_00/) Kuunneltu. 22.4.2025
+
 Stack Overflow 2016: Viestiketju, difference between tar zxf vs -xvf. Luettavissa: (https://stackoverflow.com/questions/35612534/difference-between-tar-zxf-vs-xvf#35613601) Luettu 22.4.2025
 
 Debian: Paketti: zlib-gst (3.2.5-1.3 ja muut). Luettavissa: (https://packages.debian.org/bullseye/zlib-gst) Luettu 22.4.2025
@@ -340,3 +355,4 @@ L. Reynolds 2024: Password cracking with John the Ripper on Linux. Luettavissa: 
 CyberOffense 2022: Use Msfvenom to Create a Reverse TCP Payload. Katsottavissa: (https://www.youtube.com/watch?v=ZqWfDrD2WVY) Katsottu. 23.4.2025
 
 R. Jämsén 2024: H4 Marraskuu2024! (Karvinen 2024). Luettavissa (https://github.com/RenneJ/tunkeutumistestaus/blob/main/h4-marraskuu2024!.md) Luettu. 23.4.2025
+
