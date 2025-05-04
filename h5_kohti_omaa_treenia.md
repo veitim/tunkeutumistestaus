@@ -97,7 +97,7 @@ Yhteys pelaa. Sitten porttiskannaus kohteeseen komennolla:
 
 ![a](images/h5_a6.png)
 
-DuckDuckGo hakupalvelimeen "what port smb uses"
+DuckDuckGo hakupalvelimeen "what port smb uses" (haut tehty isäntäkoneelta käsin)
 
 ![a](images/h5_a9.png)
 
