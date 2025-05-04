@@ -21,7 +21,7 @@ Kali virtuaalkone:
  
 ## a) HTB Dancing
 
-Tehtävässä oli tarkoituksena tehdä Hack the box sivuston starting point tehtävä nimeltä Dancing.
+Tehtävässä oli tarkoituksena tehdä [Hack the box sivuston starting point](https://app.hackthebox.com/starting-point) tehtävä nimeltä Dancing.
 
 Aloitin tehtävän yhdistämällä kali koneeni htb:n labra verkkoon. Valitsin OpenVPN vaihto ehdon Karvisen suosituksen mukaan.
 
@@ -152,7 +152,7 @@ Tehtävä suoritettu.
 
 ## b) HTB Responder
 
-Tehtävässä oli tarkoituksena tehdä Hack the box sivuston starting point tehtävä nimeltä Responder. Responder tehtävssä oli 11 kysymystä mihin piti vastata.
+Tehtävässä oli tarkoituksena tehdä [Hack the box sivuston starting point tehtävä](https://app.hackthebox.com/starting-point) nimeltä Responder. Responder tehtävssä oli 11 kysymystä mihin piti vastata.
 
 Openvpn yhteys vielä aktiivisena, joten tähän ei tarvitse koskea. Painoin vain "spawn machine" painiketta.
 
