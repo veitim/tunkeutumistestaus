@@ -79,7 +79,13 @@ Kokeilin pingata googlea.
 
 Paketteja lähtee, mutta kaikki katoaa. Eli yhteydessä on jotain vikaa (palomuurin pitäisi estää pääsy kokonaan ulospäin, koska olin laittanu "sudo ufw default deny outgoing") 
 
-Pingasin labra konetta tämän ip-osoitteella
+Testasin vielä selaimesta ettei sivut aukea.
+
+![a](images/h5_a16.png)
+
+Ei aukea, joten luotan siihen, että palomuuri blokkaa lähtevän liikenteen.
+
+Seuraavaksi pingasin labra konetta tämän ip-osoitteella
 
 ![a](images/h5_a8.png)
 
