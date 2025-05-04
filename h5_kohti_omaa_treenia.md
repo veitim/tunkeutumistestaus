@@ -126,7 +126,7 @@ Komennolla:
 
 ![a](images/h5_a11.png)
 
-IPC:hen pääsi sisälle. 
+IPC:hen pääsi sisälle. En alkanut tutkimaan enempää, kun ls komennolla mitään näkynyt (tiesin kanssa, että tätä ei haeta).
 
 ![a](images/h5_a12.png)
 
