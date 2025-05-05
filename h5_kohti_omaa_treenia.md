@@ -1,6 +1,6 @@
 # h5 Kohti omaa treeniä
 
-Raporttia on tehty 4.5.2025 klo. 15.30 - 
+Raporttia on tehty 4.5.2025 klo. 15.30 - 00.00 sekä 5.5.2025 klo. 17.15 - 
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
 
@@ -18,7 +18,16 @@ Kali virtuaalkone:
 ![x](images/h5_x1.png)
 
 ## x) tiivistelmä
- 
+
+### Karvinen 2025: [Start Your Research with a Review Article](https://terokarvinen.com/review-article/)
+
+* Katsauksista on hyvä saada yleiskyva aiheesta
+* Katsausartikkeleissa mainitaan tämän olevan katsaus.
+* Julkaisufoorumin (JUFO) katsaukset ovat hyviä, kun arvosteluasteikko on 1-3 
+* Googe Scholaria (https://scholar.google.com/ncr) voi käyttää tieteellisten artikkelien etsinnässä.
+
+###
+
 ## a) HTB Dancing
 
 Tehtävässä oli tarkoituksena tehdä [Hack the box sivuston starting point](https://app.hackthebox.com/starting-point) tehtävä nimeltä Dancing.
