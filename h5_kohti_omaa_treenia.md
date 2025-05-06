@@ -1,6 +1,6 @@
 # h5 Kohti omaa treeniä
 
-Raporttia on tehty 4.5.2025 klo. 15.30 - 00.00 sekä 6.5.2025 klo. 01.20 -  
+Raporttia on tehty 4.5.2025 klo. 15.30 - 00.00 sekä 7.5.2025 klo. 01.20 - 01.45 (Päivämäärää päivitetty oikeaksi 7.5.2025) 
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
 
@@ -289,4 +289,4 @@ Redis: KEYS. Luettavissa: (https://redis.io/docs/latest/commands/keys/) Luettu 4
 
 Wikipedia: Redis. Luettavissa: (https://en.wikipedia.org/wiki/Redis) Luettu 4.5.2025
 
-S. Saaed, et al. 2023: A Systematic Literature Review on Cyber Threat Intelligence for Organizational Cybersecurity Resilience. Luettavissa: (https://www.mdpi.com/1424-8220/23/16/7273) Luettu 6.5.2025
+S. Saaed, et al. 2023: A Systematic Literature Review on Cyber Threat Intelligence for Organizational Cybersecurity Resilience. Luettavissa: (https://www.mdpi.com/1424-8220/23/16/7273) Luettu 7.5.2025
