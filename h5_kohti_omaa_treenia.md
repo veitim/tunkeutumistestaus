@@ -1,6 +1,6 @@
 # h5 Kohti omaa treeniä
 
-Raporttia on tehty 4.5.2025 klo. 15.30 - 00.00 sekä 5.5.2025 klo. 17.15 - 
+Raporttia on tehty 4.5.2025 klo. 15.30 - 00.00 sekä 6.5.2025 klo. 01.20 -  
 
 Tässä raportissa tehdyt tehtävät ovat osana Tero Karvisen tunkeutumistestaus kurssia. Materiaalit ovat luettavissa osoitteessa: (https://terokarvinen.com/tunkeutumistestaus/).
 
@@ -26,7 +26,13 @@ Kali virtuaalkone:
 * Julkaisufoorumin (JUFO) katsaukset ovat hyviä, kun arvosteluasteikko on 1-3 
 * Googe Scholaria (https://scholar.google.com/ncr) voi käyttää tieteellisten artikkelien etsinnässä.
 
-###
+### A Systematic Literature Review on Cyber Threat Intelligence for Organizational Cybersecurity Resilience (https://www.mdpi.com/1424-8220/23/16/7273)
+
+* Artikkeli käyty läpi silmäillen (27 sivua lähteineen)
+* Kyberhyökkäykset riivaavat yrityksiä maailmanlaajuisesti
+* CTI (Cyber Threat Intelligence) on prosessi tiedonhallinta prosessi, jolla ehkäistään kyberuhkia.
+* CTI framework: 1: Tietotaso, 2: Tunnistus ja 3: Visualisointi. Ennalta ehkäisevää toimintaa. Mitä tiedetään, miten voidaan tunnistaa uhkia ja mitä vaaraa/haittaa uhista voi ja on ollut. 
+* CTI:n avainkomponentteja on tiedon keruu, sen prosessointi, analysointi ja jakaminen.
 
 ## a) HTB Dancing
 
@@ -282,3 +288,5 @@ Redis: SELECT. Luettavissa: (https://redis.io/docs/latest/commands/select/) Luet
 Redis: KEYS. Luettavissa: (https://redis.io/docs/latest/commands/keys/) Luettu 4.5.2025
 
 Wikipedia: Redis. Luettavissa: (https://en.wikipedia.org/wiki/Redis) Luettu 4.5.2025
+
+S. Saaed, et al. 2023: A Systematic Literature Review on Cyber Threat Intelligence for Organizational Cybersecurity Resilience. Luettavissa: (https://www.mdpi.com/1424-8220/23/16/7273) Luettu 6.5.2025
