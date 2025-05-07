@@ -380,6 +380,8 @@ Eroaa ip:stä mitä tun0 käyttää.
 Kokeillaan 5 päätettä
 
     //10.10.14.5/somefile
+
+Alkoi tapahtumaan. Loistavaa.
  
 ![c](images/h5_c13.png)
 
