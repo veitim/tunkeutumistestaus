@@ -171,7 +171,7 @@ copy-paste
 
 Tehtävä suoritettu.
 
-## b) HTB Responder
+## b) HTB Responder (nerokkuuttani olen tehnyt redeemer tehtävän responder tehtävän sijaan) 
 
 Tehtävässä oli tarkoituksena tehdä [Hack the box sivuston starting point tehtävä](https://app.hackthebox.com/starting-point) nimeltä Responder. Responder tehtävssä oli 11 kysymystä mihin piti vastata.
 
@@ -269,6 +269,122 @@ Copy-pastesin lipun ja kone pwnattu
 
 ![b](images/h5_b6.png)
 
+## c) Responder (Tämä tehtävä tehty raportin palautuksen jälkeen 7.5.2025 klo. 2.40 - )
+
+Yhteys openvpn kalikoneella samalla tapaan, kuin ensimmäistä tehtävää tehdessä ja kohdekoneen herätys.
+
+![c](images/h5_c1.png)
+
+* Todiste, että varmasti teen oikeaa tehtävää (itselleni enemmän)
+
+![c](images/h5_c2.png)
+
+Kohdekone elossa. Joten voi aloittaa. 10 taskia, jotai lähden pureskelemaan.
+
+### 1) Mihin domainii menee redirecti
+
+Eli kohdekoneen ip-osoitteeseen, kun selaimella yritti mennä, niin ohjaus meni "unika.htb" nimiseen domainiin.
+
+![c](images/h5_c3.png)
+
+Ja tämä oli myös vastaus.
+
+### 2) Millä scriptikielellä webbisivut tehty
+
+Googlaimelassa vastaus löyti helposttikin (php), mutta tämä varmaa pitäisi löytyä jotenkin tästä osoitteesta. Nyt en jaksa käyttää tähän aikaa, joten avaan ohjeet löytyy tehtävän yhteydestä.
+
+Eli skannataan kohteen portit. Ensiksi varmistus ettei verkkoo eksy paketteja.
+
+![c](images/h5_c5.png)
+
+* Pingasin googlea ja kokeilin amazonin sivustoa, ei toimi.
+
+Sitten skannaus komennolla:
+
+    nmap -T4 -sV -p- 10.129.181.18
+
+* ohjeissa haluttiin käyttää parametria "--min rate", millä säädetään, että montako pakettia sekunnisa yrittää lähteä minimissään.
+
+![c](images/h5_c6.png)
+
+Sieltä löytyi php
+
+### 3) URL parametrin nimi, jolla vieraskieli ladataan.
+
+Ohjeita noudattaen lisäsin lokaaliin nimipalveluun kohteen ip ja domain. Tämä siksi, että saataisiin unika.htb näkyviin.
+
+![c](images/h5_c4.png)
+
+Unika.htb sivu latautuu. Kieliä vaihdellessa, URL-kenttään ilmaantuu parametri "page" ja tämä myös oli tehtävän vastaus.
+
+![c](images/h5_c7.png)
+
+### 4) Arvojen arvailua, eli millä suoritetaan LFI (Local FIle Include) haavoittuvuus.
+
+Nyt näyttäisi olevan pathtravrsalia (haluan mainita, että tämän kohdan osasin tehdä ilman ohjeita). Eli hyödynnetään aikaisemman taskin "page=" parametra siten, että kuljetaan hakemiston juuren, mistä sittenl lähdetään etenemään haluttuun sijaintiin. Annetuista vaihtoehdoista vain seuraava vie juureen:
+
+    ../../../../../../../../windows/system32/drivers/etc/hosts
+
+Ja tämä oli myös oikea vastaus. Vielä täsmennyksena yllä oleva rimpsu hakee tietoa palvelimen laitteesta. 
+
+![c](images/h5_c8.png)
+
+### 5) Arvojen arvailua, eli millä suoritetaan RFI (Remote FIle Include) haavoittuvuus.
+
+Nyt mietiskellään, että miten etäkohteeseen päästään käsiksi. Vaihtoehdoista seuraava näyttää oikealta: 
+
+    //10.10.14.6/somefile
+
+Ja olikin. Tämä siksi, että tässä on vieras ip-osoite, josta haetaan "somefile" (tai ainakin näin uskoisin).
+
+![c](images/h5_c9.png)
+
+### 6) Mitä tarkoittaa NTLM
+
+Wikipedian mukaan NTLM (new techology lan manager) on tunnistamiseen, eheyteen ja luotettavuuteen liittyvä protokolla.
+
+new technology lan manager on vastaus.
+
+### 7) Millä lipulla määritetään network interface responderilla
+
+Käydään kurkkaamassa respnderin dokumentaatioita (https://www.kali.org/tools/responder/) -I näyttäisi lupaavalta.
+
+-I on vastaus
+
+### 8) työkalu johnin nimi
+
+John the ripperiä ollaan jo käytetty tällä kurssilla.
+
+vastaus = "joh the ripper"
+
+### 9) mikä on admin käyttäjän salasana.
+
+Eli nyt varmaan pitäisi responderilla saada admin käyttäjä, minkä salasana murretaan john the ripperillä. Näin myö sanoo hack the boxin vihje. Eli kokeillaan responderia.
+
+![c](images/h5_c10.png)
+
+Semmonen, nyt vielä pitäisi ymmärtää, että mitä tällä täytyy tehdä. Hetken tutkittua ja pääteltyä responder kuuntelee liikennettä. Ja tässä pitää käyttää RFI:tä eli kuunnella liikennettä, kun täälä yritetään hakea jotain.
+
+Kokeillaan.
+
+![c](images/h5_c11.png)
+
+Mitään ei tapahdu vaikka yrittää hakea. Joten päivitin palomuuriasetukset päästämään liikentee "10.10.0.0" verkkoihin. Tämäkään ei auttanut. Huomasin, että hack the boxin ip osoitteessa oli numeron heitto. Eli se mitä käytettiin aikasemmassa tehtävvä vastaukseana
+
+    //10.10.14.6/somefile
+
+Eroaa ip:stä mitä tun0 käyttää. 
+
+![c](images/h5_c12.png)
+
+Kokeillaan 5 päätettä
+
+    //10.10.14.5/somefile
+ 
+![c](images/h5_c13.png)
+
+Näyttäisi hashilta. Sitten john the ripperin pariin
+
 ## Lähdeluettelo:
 
 T. Karvinen 2025: Tunkeutumistestaus. Luettavissa: (https://terokarvinen.com/tunkeutumistestaus/) Luettu 4.5.2025
@@ -290,3 +406,7 @@ Redis: KEYS. Luettavissa: (https://redis.io/docs/latest/commands/keys/) Luettu 4
 Wikipedia: Redis. Luettavissa: (https://en.wikipedia.org/wiki/Redis) Luettu 4.5.2025
 
 S. Saaed, et al. 2023: A Systematic Literature Review on Cyber Threat Intelligence for Organizational Cybersecurity Resilience. Luettavissa: (https://www.mdpi.com/1424-8220/23/16/7273) Luettu 7.5.2025
+
+Wikipedia arttikeli: NTLM. Luettavissa: (https://en.wikipedia.org/wiki/NTLM) Luettu 7.5.2025
+
+Kali tool documentation: responder Usage Example. Luettavissa: (https://www.kali.org/tools/responder/) Luettu 7.5.2025
