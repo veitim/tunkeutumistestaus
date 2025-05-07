@@ -269,7 +269,7 @@ Copy-pastesin lipun ja kone pwnattu
 
 ![b](images/h5_b6.png)
 
-## c) Responder (Tämä tehtävä tehty raportin palautuksen jälkeen 7.5.2025 klo. 2.40 - )
+## c) Responder (Tämä tehtävä tehty raportin palautuksen jälkeen 7.5.2025 klo. 2.40 - 5.20)
 
 Yhteys openvpn kalikoneella samalla tapaan, kuin ensimmäistä tehtävää tehdessä ja kohdekoneen herätys.
 
@@ -383,7 +383,43 @@ Kokeillaan 5 päätettä
  
 ![c](images/h5_c13.png)
 
-Näyttäisi hashilta. Sitten john the ripperin pariin
+Näyttäisi hashilta. Sitten john the ripperin pariin.
+
+ALkuun tehdään hashista tiedosto echolla
+
+![c](images/h5_c14.png)
+
+Sitten ajetaan johnilla
+
+![c](images/h5_c15.png)
+
+badminton näyttäisi olevan salasana, ja olikin,
+
+### 10) Mitä porttia windows service kuuntelee.
+
+Taas portti skannataan.
+
+![c](images/h5_c16.png)
+
+5985 näyttäisi olevan ja olikin.
+
+### lipunryöstö
+
+Ei hajuakaan mitä pitäisi nyt tehdä, joten ohjeet taas esille.
+
+Eli käytetään evil-winrm nimistä työkalua, jolla kirjadutaan kohdepalveluun. Eli kohteen iippari (hack the box masiina) sitten saaduilla kirjautumistiedoilla mennään sisälle.
+
+![c](images/h5_c17.png)
+
+Hakemistoissa navigoitiin "cd" komennolla ja "dir" komennolla voitiin tarkastaa mitä löytyy.
+
+"/Users/mike/Destop" hakemistosta löytyi lippu tiedosto minkä sisältöä voitiin tarkastella "type" komennolla. 
+
+![c](images/h5_c18.png)
+
+Sitten tämä copypastella hack the boxiin
+
+![c](images/h5_c19.png)
 
 ## Lähdeluettelo:
 
