@@ -1,3 +1,3 @@
 # tunkeutumistestaus
 
-Tero Karvisen Tunkeutumistestaus 2025 kurssin aikana tehdyt raportit.
+Tero Karvisen [Tunkeutumistestaus 2025 kurssin](https://terokarvinen.com/tunkeutumistestaus/) aikana tehdyt raportit.
